@@ -53,6 +53,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.material3.Surface
 import com.zx_tole.myapplication.data.MockData
+import com.zx_tole.myapplication.mvi.AIToolIntent
+import com.zx_tole.myapplication.mvi.AIToolMvi
+import com.zx_tole.myapplication.mvi.AIToolState
+import com.zx_tole.myapplication.mvi.AppDestinations
 import com.zx_tole.myapplication.model.AITool
 import com.zx_tole.myapplication.model.Category
 import com.zx_tole.myapplication.ui.theme.MyApplicationTheme
@@ -78,25 +82,8 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AIToolsApp() {
-    var currentDestination by remember { mutableStateOf(AppDestinations.HOME) }
-    var searchQuery by remember { mutableStateOf("") }
-    var selectedCategory by remember { mutableStateOf<Category?>(null) }
-    var selectedTool by remember { mutableStateOf<AITool?>(null) }
-    
-    // Favorite state: list of tool IDs
-    var favoriteToolIds by remember { mutableStateOf<Set<Int>>(emptySet()) }
-    
-    // Function to toggle favorite
-    val toggleFavorite = { tool: AITool ->
-        favoriteToolIds = if (favoriteToolIds.contains(tool.id)) {
-            favoriteToolIds - tool.id
-        } else {
-            favoriteToolIds + tool.id
-        }
-    }
-    
-    // Function to check if tool is in favorites
-    val isFavorite = { tool: AITool -> favoriteToolIds.contains(tool.id) }
+    var state by remember { mutableStateOf(AIToolMvi.state) }
+    var currentDestination by remember { mutableStateOf(state.currentDestination) }
 
     Scaffold(
         topBar = {
@@ -117,19 +104,25 @@ fun AIToolsApp() {
                     icon = { Icon(painter = painterResource(id = AppDestinations.HOME.iconRes), contentDescription = null) },
                     label = { Text(stringResource(AppDestinations.HOME.labelRes)) },
                     selected = currentDestination == AppDestinations.HOME,
-                    onClick = { currentDestination = AppDestinations.HOME }
+                    onClick = {
+                        currentDestination = AppDestinations.HOME
+                    }
                 )
                 NavigationBarItem(
                     icon = { Icon(painter = painterResource(id = AppDestinations.FAVORITES.iconRes), contentDescription = null) },
                     label = { Text(stringResource(AppDestinations.FAVORITES.labelRes)) },
                     selected = currentDestination == AppDestinations.FAVORITES,
-                    onClick = { currentDestination = AppDestinations.FAVORITES }
+                    onClick = {
+                        currentDestination = AppDestinations.FAVORITES
+                    }
                 )
                 NavigationBarItem(
                     icon = { Icon(painter = painterResource(id = AppDestinations.PROFILE.iconRes), contentDescription = null) },
                     label = { Text(stringResource(AppDestinations.PROFILE.labelRes)) },
                     selected = currentDestination == AppDestinations.PROFILE,
-                    onClick = { currentDestination = AppDestinations.PROFILE }
+                    onClick = {
+                        currentDestination = AppDestinations.PROFILE
+                    }
                 )
             }
         }
@@ -137,26 +130,22 @@ fun AIToolsApp() {
         when (currentDestination) {
             AppDestinations.HOME -> {
                 HomeScreen(
-                    searchQuery = searchQuery,
-                    onSearchQueryChange = { searchQuery = it },
-                    selectedCategory = selectedCategory,
-                    onCategorySelect = { selectedCategory = it },
-                    onToolClick = { tool ->
-                        selectedTool = tool
-                    },
-                    onToggleFavorite = toggleFavorite,
-                    isFavorite = isFavorite,
+                    searchQuery = state.searchQuery,
+                    onSearchQueryChange = { AIToolMvi.handleIntent(AIToolIntent.SearchQueryChange(it)); state = AIToolMvi.state },
+                    selectedCategory = state.selectedCategory,
+                    onCategorySelect = { AIToolMvi.handleIntent(AIToolIntent.CategorySelect(it)); state = AIToolMvi.state },
+                    onToolClick = { AIToolMvi.handleIntent(AIToolIntent.ToolClick(it)); state = AIToolMvi.state },
+                    onToggleFavorite = { AIToolMvi.handleIntent(AIToolIntent.ToggleFavorite(it)); state = AIToolMvi.state },
+                    isFavorite = { state.favoriteToolIds.contains(it.id) },
                     modifier = Modifier.padding(innerPadding)
                 )
             }
 
             AppDestinations.FAVORITES -> {
                 FavoritesScreen(
-                    onToolClick = { tool ->
-                        selectedTool = tool
-                    },
-                    onToggleFavorite = toggleFavorite,
-                    isFavorite = isFavorite,
+                    onToolClick = { AIToolMvi.handleIntent(AIToolIntent.ToolClick(it)); state = AIToolMvi.state },
+                    onToggleFavorite = { AIToolMvi.handleIntent(AIToolIntent.ToggleFavorite(it)); state = AIToolMvi.state },
+                    isFavorite = { state.favoriteToolIds.contains(it.id) },
                     modifier = Modifier.padding(innerPadding)
                 )
             }
@@ -167,12 +156,12 @@ fun AIToolsApp() {
         }
 
         // Show details dialog for selected tool
-        selectedTool?.let { tool ->
+        state.selectedTool?.let { tool ->
             ToolDetailsDialog(
                 tool = tool,
-                isFavorite = isFavorite(tool),
-                onDismiss = { selectedTool = null },
-                onToggleFavorite = { toggleFavorite(tool) }
+                isFavorite = state.favoriteToolIds.contains(tool.id),
+                onDismiss = { AIToolMvi.handleIntent(AIToolIntent.ToolDismiss); state = AIToolMvi.state },
+                onToggleFavorite = { AIToolMvi.handleIntent(AIToolIntent.ToggleFavorite(tool)); state = AIToolMvi.state }
             )
         }
     }
@@ -626,15 +615,6 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.bodyMedium
         )
     }
-}
-
-enum class AppDestinations(
-    val labelRes: Int,
-    val iconRes: Int,
-) {
-    HOME(R.string.search_placeholder, R.drawable.ic_home),
-    FAVORITES(R.string.favorite, R.drawable.ic_favorite),
-    PROFILE(R.string.profile, R.drawable.ic_assistant),
 }
 
 @PreviewScreenSizes
