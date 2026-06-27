@@ -80,10 +80,10 @@ fun AIToolsApp() {
     var selectedCategory by remember { mutableStateOf<Category?>(null) }
     var selectedTool by remember { mutableStateOf<AITool?>(null) }
     
-    // Состояние избранного: список ID инструментов
+    // Favorite state: list of tool IDs
     var favoriteToolIds by remember { mutableStateOf<Set<Int>>(emptySet()) }
     
-    // Функция переключения избранного
+    // Function to toggle favorite
     val toggleFavorite = { tool: AITool ->
         favoriteToolIds = if (favoriteToolIds.contains(tool.id)) {
             favoriteToolIds - tool.id
@@ -92,7 +92,7 @@ fun AIToolsApp() {
         }
     }
     
-    // Функция проверки, в избранном ли инструмент
+    // Function to check if tool is in favorites
     val isFavorite = { tool: AITool -> favoriteToolIds.contains(tool.id) }
 
     Scaffold(
@@ -450,7 +450,7 @@ fun ToolDetailsDialog(
                             tint = MaterialTheme.colorScheme.primary
                         )
                         Text(
-                            text = "Изображение: ${tool.name}",
+                            text = "Image: ${tool.name}",
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.padding(top = 8.dp)
                         )

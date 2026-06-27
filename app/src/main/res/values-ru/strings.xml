@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI Tools Finder</string>
+    <string name="splash_subtext">Найди идеальный AI инструмент</string>
+    <string name="search_placeholder">Поиск AI инструментов...</string>
+    <string name="all">Все</string>
+    <string name="text_generation">Генерация текста</string>
+    <string name="image_generation">Генерация изображений</string>
+    <string name="assistants">Ассистенты</string>
+    <string name="no_favorites">Избранное пусто</string>
+    <string name="add_to_favorites">Добавьте инструменты в избранное, чтобы видеть их здесь</string>
+    <string name="about_app">О приложении</string>
+    <string name="version">Версия 1.0.0</string>
+    <string name="description">Это приложение помогает находить аналоги AI инструментов. Вы можете искать по категориям, добавлять инструменты в избранное и легко находить альтернативы.</string>
+    <string name="developer">Разработчик</string>
+    <string name="created_with">Создано с использованием Jetpack Compose и Material 3</string>
+    <string name="website">Официальный сайт:</string>
+    <string name="close">Закрыть</string>
+    <string name="add_to_favorite">В избранное</string>
+    <string name="remove_from_favorite">Убрать из избранного</string>
+    <string name="favorite">Избранное</string>
+    <string name="profile">Профиль</string>
+</resources>

@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Запуск MainActivity через 1.5 секунды
+        // Launch MainActivity after 1.5 seconds
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)
