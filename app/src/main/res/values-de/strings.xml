@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI Tools Finder</string>
+    <string name="splash_subtext">Finden Sie das perfekte AI-Tool</string>
+    <string name="search_placeholder">AI-Tools suchen...</string>
+    <string name="all">Alle</string>
+    <string name="text_generation">Textgenerierung</string>
+    <string name="image_generation">Bildgenerierung</string>
+    <string name="assistants">Assistenten</string>
+    <string name="no_favorites">Favoriten ist leer</string>
+    <string name="add_to_favorites">Fügen Sie Tools zu Favoriten hinzu, um sie hier zu sehen</string>
+    <string name="about_app">Über App</string>
+    <string name="version">Version 1.0.0</string>
+    <string name="description">Diese App hilft Ihnen, Alternative zu AI-Tools zu finden. Sie können nach Kategorien suchen, Tools zu Favoriten hinzufügen und leicht Alternativen finden.</string>
+    <string name="developer">Entwickler</string>
+    <string name="created_with">Erstellt mit Jetpack Compose und Material 3</string>
+    <string name="website">Offizielle Website:</string>
+    <string name="close">Schließen</string>
+    <string name="add_to_favorite">Zu Favoriten hinzufügen</string>
+    <string name="remove_from_favorite">Aus Favoriten entfernen</string>
+    <string name="favorite">Favoriten</string>
+    <string name="profile">Profil</string>
+</resources>
