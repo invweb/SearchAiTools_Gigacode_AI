@@ -1,12 +1,15 @@
 package com.zx_tole.myapplication.model
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.zx_tole.myapplication.R
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 
 data class AITool(
     val id: Int,
-    val name: String,
-    val description: String,
+    @StringRes val nameResId: Int,
+    @StringRes val descriptionResId: Int,
     val url: String,
     val category: Category
 )

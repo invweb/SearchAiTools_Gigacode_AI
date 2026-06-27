@@ -13,11 +13,31 @@
     <string name="version">版本 1.0.0</string>
     <string name="description">本应用帮助您寻找 AI 工具的替代品。您可以按类别搜索、将工具添加到收藏夹并轻松找到替代品。</string>
     <string name="developer">开发者</string>
-    <string name="created_with">使用 Jetpack Compose 和 Material 3 创建</string>
+    <string name="created_with">使用 Jetpack Compose и Material 3 创建</string>
     <string name="website">官方网站:</string>
     <string name="close">关闭</string>
     <string name="add_to_favorite">添加到收藏夹</string>
     <string name="remove_from_favorite">从收藏夹中移除</string>
     <string name="favorite">收藏夹</string>
     <string name="profile">个人资料</string>
+    
+    <!-- AI Tools names -->
+    <string name="chatgpt">ChatGPT</string>
+    <string name="claude">Claude</string>
+    <string name="gemini">Gemini</string>
+    <string name="github_copilot">GitHub Copilot</string>
+    <string name="midjourney">Midjourney</string>
+    <string name="dalle">DALL-E</string>
+    <string name="stable_diffusion">Stable Diffusion</string>
+    <string name="tabnine">Tabnine</string>
+    
+    <!-- AI Tools descriptions -->
+    <string name="chatgpt_desc">基于 GPT 的流行聊天机器人，用于对话和文本生成</string>
+    <string name="claude_desc">Anthropic 的 AI，注重安全性</string>
+    <string name="gemini_desc">Google 的多功能 AI，用于文本、代码和图像</string>
+    <string name="github_copilot_desc">微软的 AI 编程助手</string>
+    <string name="midjourney_desc">根据文本描述生成图像</string>
+    <string name="dalle_desc">使用 OpenAI 的神经网络创建图像</string>
+    <string name="stable_diffusion_desc">开源图像生成引擎</string>
+    <string name="tabnine_desc">面向开发者的 AI 助手，专注于代码</string>
 </resources>

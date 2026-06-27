@@ -20,4 +20,24 @@
     <string name="remove_from_favorite">Убрать из избранного</string>
     <string name="favorite">Избранное</string>
     <string name="profile">Профиль</string>
+    
+    <!-- AI Tools names -->
+    <string name="chatgpt">ChatGPT</string>
+    <string name="claude">Claude</string>
+    <string name="gemini">Gemini</string>
+    <string name="github_copilot">GitHub Copilot</string>
+    <string name="midjourney">Midjourney</string>
+    <string name="dalle">DALL-E</string>
+    <string name="stable_diffusion">Stable Diffusion</string>
+    <string name="tabnine">Tabnine</string>
+    
+    <!-- AI Tools descriptions -->
+    <string name="chatgpt_desc">Популярный чатбот на основе GPT для общения и генерации текста</string>
+    <string name="claude_desc">AI от Anthropic, сосредоточенный на безопасности</string>
+    <string name="gemini_desc">Универсальный AI от Google для текста, кода и изображений</string>
+    <string name="github_copilot_desc">AI-ассистент для программирования от Microsoft</string>
+    <string name="midjourney_desc">Генерирует изображения по текстовому описанию</string>
+    <string name="dalle_desc">Создает изображения с помощью нейросети от OpenAI</string>
+    <string name="stable_diffusion_desc">Движок с открытым исходным кодом для генерации изображений</string>
+    <string name="tabnine_desc">AI-ассистент для разработчиков, сосредоточенный на коде</string>
 </resources>

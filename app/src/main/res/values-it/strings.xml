@@ -20,4 +20,24 @@
     <string name="remove_from_favorite">Rimuovi dai preferiti</string>
     <string name="favorite">Preferiti</string>
     <string name="profile">Profilo</string>
+    
+    <!-- AI Tools names -->
+    <string name="chatgpt">ChatGPT</string>
+    <string name="claude">Claude</string>
+    <string name="gemini">Gemini</string>
+    <string name="github_copilot">GitHub Copilot</string>
+    <string name="midjourney">Midjourney</string>
+    <string name="dalle">DALL-E</string>
+    <string name="stable_diffusion">Stable Diffusion</string>
+    <string name="tabnine">Tabnine</string>
+    
+    <!-- AI Tools descriptions -->
+    <string name="chatgpt_desc">Chatbot popolare basato su GPT per conversazione e generazione testo</string>
+    <string name="claude_desc">AI di Anthropic, focalizzata sulla sicurezza</string>
+    <string name="gemini_desc">AI multifunzionale di Google per testo, codice e immagini</string>
+    <string name="github_copilot_desc">Assistente di programmazione AI di Microsoft</string>
+    <string name="midjourney_desc">Genera immagini da descrizione testuale</string>
+    <string name="dalle_desc">Crea immagini usando rete neurale di OpenAI</string>
+    <string name="stable_diffusion_desc">Motore open source per generazione immagini</string>
+    <string name="tabnine_desc">Assistente AI per sviluppatori focalizzato sul codice</string>
 </resources>
