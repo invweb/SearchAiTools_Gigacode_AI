@@ -28,14 +28,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -89,7 +87,7 @@ fun HomeScreen(
                     onClick = { onCategorySelect(null) }
                 )
             }
-            items(Category.values()) { category ->
+            items(Category.entries.toTypedArray()) { category ->
                 CategoryChip(
                     label = stringResource(id = category.displayNameRes),
                     isSelected = selectedCategory == category,
@@ -178,18 +176,13 @@ fun AIToolCard(
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = stringResource(tool.nameResId),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
-                )
-                Icon(
-                    painter = painterResource(id = tool.category.iconRes),
-                    contentDescription = stringResource(id = tool.category.displayNameRes),
-                    modifier = Modifier.size(20.dp)
                 )
             }
 
@@ -250,7 +243,7 @@ fun ToolDetailsDialog(
     androidx.compose.material3.BasicAlertDialog(
         onDismissRequest = onDismiss
     ) {
-        androidx.compose.material3.Card(
+        Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
