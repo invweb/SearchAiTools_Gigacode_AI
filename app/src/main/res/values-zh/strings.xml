@@ -13,7 +13,7 @@
     <string name="version">版本 1.0.0</string>
     <string name="description">本应用帮助您寻找 AI 工具的替代品。您可以按类别搜索、将工具添加到收藏夹并轻松找到替代品。</string>
     <string name="developer">开发者</string>
-    <string name="created_with">使用 Jetpack Compose и Material 3 创建</string>
+    <string name="created_with">使用 Jetpack Compose 和 Material 3 创建</string>
     <string name="website">官方网站:</string>
     <string name="close">关闭</string>
     <string name="add_to_favorite">添加到收藏夹</string>
