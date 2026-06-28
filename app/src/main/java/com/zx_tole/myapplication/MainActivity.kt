@@ -79,6 +79,9 @@ fun AIToolsApp() {
                     onToolClick = { tool ->
                         AIToolMvi.handleIntent(AIToolIntent.ToolClick(tool))
                     },
+                    onToggleFavorite = { tool ->
+                        AIToolMvi.handleIntent(AIToolIntent.ToggleFavorite(tool))
+                    },
                     isFavorite = { tool -> state.favoriteToolIds.contains(tool.id) },
                     modifier = Modifier.padding(innerPadding)
                 )
@@ -88,6 +91,9 @@ fun AIToolsApp() {
                 FavoritesScreen(
                     onToolClick = { tool ->
                         AIToolMvi.handleIntent(AIToolIntent.ToolClick(tool))
+                    },
+                    onToggleFavorite = { tool ->
+                        AIToolMvi.handleIntent(AIToolIntent.ToggleFavorite(tool))
                     },
                     isFavorite = { tool -> state.favoriteToolIds.contains(tool.id) },
                     modifier = Modifier.padding(innerPadding)
