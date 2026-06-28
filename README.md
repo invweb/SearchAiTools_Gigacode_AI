@@ -1,9 +1,5 @@
 An application that allows you to search for all the tools related to artificial intelligence.
-![Splash0 screen Screenshot](Screenshot_20260627_180403.png)
-![Splash1 screen Screenshot](Screenshot_20260627_180413.png)
-![Main screen Screenshot](Screenshot_20260627_171822.png)
-![Favorites screen Screenshot](Screenshot_20260627_171847.png)
-![AI_info screen Screenshot](Screenshot_20260627_171857.png)
+![Splash screen Screenshot](Screenshot_20260627_180413.png)
+![Main screen Screenshot](Screenshot_20260627_171822.jpeg)
+![AI_info screen Screenshot](3a9d5b73-c922-4a37-9673-e8eda7b100b8.jpeg)
 ![About screen Screenshot](Screenshot_20260627_171908.png)
-
-![Search screen Screenshot](Screenshot_20260627_174147.png)
